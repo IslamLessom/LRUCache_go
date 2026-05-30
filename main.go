@@ -32,7 +32,7 @@ func NewLRUCache(capacity int) *LRUCache {
 
 func (c *LRUCache) remove(node *Node) {
 	node.prev.next = node.next
-	node.next = c.tail
+	node.next.prev = node.prev
 }
 
 func (c *LRUCache) addToTail(node *Node) {
